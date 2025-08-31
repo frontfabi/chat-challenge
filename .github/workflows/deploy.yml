@@ -40,4 +40,4 @@ jobs:
         run: aws cloudfront create-invalidation --distribution-id ${{ secrets.AWS_DISTRIBUTION_ID }} --paths "/*"
 
       - name: Deployment completed successfully!
-        run: echo "Successfully deployed to AWS S3 and invalidated CloudFront cache."
+        run: echo "Successfully deployed to AWS S3 and invalidated CloudFront cache"
