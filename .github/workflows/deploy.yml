@@ -1,0 +1,48 @@
+name: Deploy Front-End to AWS
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Next.js project
+        run: npm run build
+        
+      - name: Export Next.js
+        run: npm run export
+
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1 # Use a região onde seu bucket S3 está.
+
+      - name: Deploy static files to S3
+        uses: aws-actions/amazon-s3-deploy@v1
+        with:
+          folder: out
+          bucket: chat-challenge-cdn
+
+          distribution-id: E23I2QKN234236
+          invalidation: /
+
+      # Passo 8: Mensagem de sucesso no console.
+      - name: Deploy realizado com sucesso!
+        run: echo "Deploy realizado com sucesso para o AWS S3 e cache do CloudFront invalidado."

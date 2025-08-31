@@ -1,4 +1,15 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat Challenge
+
+Este desafio propõe a criação de um chat para interagir com LLM.
+
+
+## Tecnologias utilizadas
+
+- [next.js](https://nextjs.org/): Framework base do projeto. Escolhido para proporcionar otimização do tempo de carregamento inicial e os benefícios das opções de SSR e SSG.
+- [Tailwind](https://tailwindcss.com/): Estilização. facilita na criação e evolução dos design systems de forma mais consistente.
+- [Zustand](https://zustand-demo.pmnd.rs/): Gerenciamento de estado. Tem boa performance e é muito simples de implementar.
+- [Tanstack Query](https://tanstack.com/query/latest/docs/framework/react/overview): Gerenciamento do ciclo de vida dos dados  da aplicação.
+
 
 ## Getting Started
 
