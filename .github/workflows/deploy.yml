@@ -24,7 +24,7 @@ jobs:
         run: npm install
 
       - name: Build and Export Next.js
-        run: npm run build && npm run export 
+        run: npm run build
 
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
